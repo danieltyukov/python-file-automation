@@ -2,12 +2,11 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 import os
-import json
 import time
 
 class MyHandler(FileSystemEventHandler):
     i = 1
-    def on_modified(self, event):
+    def on_modified(self):
         new_name = "new_file_" + str(self.i) + ".txt"
         
         for filename in os.listdir(folder_to_track):
